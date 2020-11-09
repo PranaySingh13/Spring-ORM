@@ -36,7 +36,7 @@
 		</property>
 		<property name="mappingResources">
 			<list>
-				<value>com/gk/resources/employee.hbm.xml</value>
+				<value>/com/gk/resources/employee.hbm.xml</value>
 			</list>
 		</property>
 		<property name="jpaProperties">
