@@ -18,11 +18,31 @@ public class Test {
 		employee.setEmpName("Pranay Singh");
 		employee.setEmpSalary(100000f);
 		employee.setEmpAddr("Indore");
-		EntityTransaction transaction = manager.getTransaction();
-		transaction.begin();
+		EntityTransaction transaction1 = manager.getTransaction();
+		transaction1.begin();
 		manager.persist(employee);
-		transaction.commit();
+		transaction1.commit();
 		System.out.println("Employee Inserted Successfully");
+		
+		Employee emp=manager.find(Employee.class, 1);
+		System.out.println(emp.toString());
+		EntityTransaction transaction2= manager.getTransaction();
+		transaction2.begin();
+		emp.setEmpName("Apoorva Singh");
+		emp.setEmpSalary(200000f);
+		emp.setEmpAddr("Delhi");
+		transaction2.commit();
+		System.out.println("Employee Updated Successfully");
+		
+		EntityTransaction transaction3= manager.getTransaction();
+		transaction2.begin();
+		Employee emp1=manager.find(Employee.class, 1);
+		manager.remove(emp1);
+		transaction2.commit();
+		System.out.println("Employee Deleted Successfully");
+		
+		
+		manager.close();
 	}
 
 }
